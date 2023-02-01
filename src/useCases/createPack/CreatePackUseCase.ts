@@ -15,7 +15,7 @@ export class CreatePackUseCase implements IUseCase {
         try {
             return await this.repository.createPack({ userId, code, name, cost, status: PackStatus.ACTIVE })
         } catch (error) {
-            return handleErrorCatching(error)
+            throw handleErrorCatching(error)
         }
     }
 }
